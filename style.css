@@ -10,6 +10,54 @@ body {
     position: relative;
 }
 
+/* Mensagens flutuantes no fundo */
+.floating-messages {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.floating-message {
+    position: absolute;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+    white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(236, 72, 153, 0.15);
+    animation: float-message linear infinite;
+}
+
+.floating-message:nth-child(1) { top: 8%; animation-duration: 22s; animation-delay: 0s; }
+.floating-message:nth-child(2) { top: 18%; animation-duration: 26s; animation-delay: -5s; }
+.floating-message:nth-child(3) { top: 28%; animation-duration: 24s; animation-delay: -10s; }
+.floating-message:nth-child(4) { top: 38%; animation-duration: 28s; animation-delay: -3s; }
+.floating-message:nth-child(5) { top: 48%; animation-duration: 25s; animation-delay: -8s; }
+.floating-message:nth-child(6) { top: 58%; animation-duration: 27s; animation-delay: -12s; }
+.floating-message:nth-child(7) { top: 68%; animation-duration: 23s; animation-delay: -6s; }
+.floating-message:nth-child(8) { top: 78%; animation-duration: 29s; animation-delay: -15s; }
+
+@keyframes float-message {
+    0% {
+        transform: translateX(110vw);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-110vw);
+        opacity: 0;
+    }
+}
+
 /* Fundo Animado Principal */
 .background-animation {
     position: fixed;
@@ -103,6 +151,74 @@ body {
     font-style: italic;
 }
 
+/* Contador de tempo */
+.countdown-section {
+    margin-top: 40px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(236, 72, 153, 0.2);
+    animation: fadeInUp 1s ease 0.3s both;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.countdown-title {
+    font-size: 1.3rem;
+    color: white;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 15px 20px;
+    min-width: 80px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+    transform: translateY(-5px);
+}
+
+.countdown-number {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f472b6;
+    line-height: 1;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.countdown-date {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
 @keyframes fadeInDown {
     from {
         opacity: 0;
@@ -124,6 +240,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 20px;
+    padding: 0 70px 50px;
 }
 
 .carousel-container {
@@ -134,9 +251,6 @@ body {
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
-    order: 0;
-    flex: 1;
-    max-width: 600px;
 }
 
 .carousel {
@@ -183,7 +297,9 @@ body {
 }
 
 .carousel-btn {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.85);
     color: #f072b6;
     border: none;
@@ -200,9 +316,6 @@ body {
     justify-content: center;
     font-weight: bold;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    flex-shrink: 0;
-    min-width: 50px;
-    flex-basis: auto;
 }
 
 .carousel-btn:hover {
@@ -212,11 +325,11 @@ body {
 }
 
 .carousel-btn.prev {
-    order: -1;
+    left: 0;
 }
 
 .carousel-btn.next {
-    order: 1;
+    right: 0;
 }
 
 .carousel-dots {
@@ -225,7 +338,7 @@ body {
     gap: 10px;
     margin-top: 25px;
     width: 100%;
-    flex-basis: 100%;
+    order: 2;
 }
 
 .dot {
@@ -257,35 +370,105 @@ body {
 .messages-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 30px;
     margin-bottom: 60px;
-    animation: fadeInUp 1s ease 0.4s both;
+    perspective: 1000px;
 }
 
 .message-card {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
+    position: relative;
+    padding: 35px 30px;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    animation: fadeInUp 0.8s ease both;
+}
+
+.message-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255, 182, 193, 0.95) 0%, rgba(255, 105, 180, 0.9) 100%);
+    animation-delay: 0.4s;
+}
+
+.message-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(173, 216, 230, 0.95) 0%, rgba(100, 149, 237, 0.9) 100%);
+    animation-delay: 0.55s;
+}
+
+.message-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(221, 160, 221, 0.95) 0%, rgba(147, 112, 219, 0.9) 100%);
+    animation-delay: 0.7s;
+}
+
+.message-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(255, 218, 185, 0.95) 0%, rgba(255, 140, 0, 0.9) 100%);
+    animation-delay: 0.85s;
+}
+
+.message-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.message-card::after {
+    content: attr(data-emoji);
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 3.5rem;
+    opacity: 0.25;
+    transform: rotate(12deg);
+    transition: all 0.4s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
 .message-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.2),
+        0 0 30px rgba(255, 255, 255, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.message-card:hover::before {
+    opacity: 1;
+}
+
+.message-card:hover::after {
+    opacity: 0.5;
+    transform: rotate(-5deg) scale(1.1);
 }
 
 .message-card h2 {
-    color: #667eea;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    color: white;
+    font-size: 1.6rem;
+    margin-bottom: 18px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
 }
 
 .message-card p {
-    color: #333;
-    line-height: 1.8;
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.9;
+    font-size: 1.05rem;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
 }
 
 /* Seção de Razões */
@@ -309,41 +492,36 @@ body {
 }
 
 .reason {
-    background: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(10px);
     padding: 25px;
-    border-radius: 15px;
+    border-radius: 18px;
     text-align: center;
     transition: all 0.3s ease;
-    border: 2px solid rgba(255, 255, 255, 0.6);
-    box-shadow: 0 4px 15px rgba(244, 114, 182, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 6px 20px rgba(244, 114, 182, 0.25);
 }
 
 .reason:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.75);
-    border-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 25px rgba(244, 114, 182, 0.35);
-}
-
-.reason p {
-    color: #2d1b2d;
-    font-weight: 500;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    transform: scale(1.05) translateY(-5px);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: white;
+    box-shadow: 0 12px 30px rgba(244, 114, 182, 0.4);
 }
 
 .reason-emoji {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
 }
 
 .reason p {
-    color: white;
+    color: #5a1a4a;
     font-size: 1.1rem;
-    font-weight: 500;
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    line-height: 1.5;
+    text-shadow: none;
 }
 
 /* Mensagem Final */
@@ -423,6 +601,16 @@ body {
         font-size: 1.2rem;
     }
 
+    .carousel-section {
+        padding: 0 55px 45px;
+    }
+
+    .carousel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.5rem;
+    }
+
     .love-letter {
         padding: 30px;
     }
@@ -435,8 +623,33 @@ body {
         font-size: 2rem;
     }
 
+    .message-card {
+        padding: 28px 22px;
+    }
+
     .message-card h2 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    .message-card::after {
+        font-size: 2.8rem;
+    }
+
+    .countdown-title {
+        font-size: 1.1rem;
+    }
+
+    .countdown-number {
+        font-size: 1.8rem;
+    }
+
+    .countdown-item {
+        min-width: 70px;
+        padding: 12px 15px;
+    }
+
+    .floating-message {
+        font-size: 1.4rem;
     }
 }
 
@@ -453,11 +666,82 @@ body {
         font-size: 1rem;
     }
 
+    .carousel-section {
+        padding: 0 45px 40px;
+        gap: 15px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 1.3rem;
+    }
+
+    .carousel-dots {
+        margin-top: 15px;
+    }
+
     .reasons-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     }
 
     .reason-emoji {
         font-size: 2rem;
+    }
+
+    .countdown-section {
+        margin-top: 25px;
+        padding: 20px 15px;
+    }
+
+    .countdown-title {
+        font-size: 1rem;
+        margin-bottom: 18px;
+    }
+
+    .countdown {
+        gap: 10px;
+    }
+
+    .countdown-item {
+        min-width: 60px;
+        padding: 10px 12px;
+    }
+
+    .countdown-number {
+        font-size: 1.5rem;
+    }
+
+    .countdown-label {
+        font-size: 0.75rem;
+    }
+
+    .countdown-date {
+        font-size: 0.95rem;
+    }
+
+    .floating-message {
+        font-size: 1.1rem;
+    }
+
+    .message-card {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .message-card h2 {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+
+    .message-card p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+
+    .message-card::after {
+        font-size: 2.2rem;
+        top: 10px;
+        right: 15px;
     }
 }

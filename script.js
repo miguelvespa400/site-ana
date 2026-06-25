@@ -22,7 +22,7 @@ function showSlide(n) {
     dots[currentSlide].classList.add('active');
 }
 
-function currentSlide(n) {
+function goToSlide(n) {
     showSlide(currentSlide = n - 1);
 }
 
@@ -73,3 +73,31 @@ document.addEventListener('click', (e) => {
 
 // Iniciar o carrossel
 showSlide(currentSlide);
+
+// Contador regressivo para 30 de julho
+function updateCountdown() {
+    const now = new Date();
+    let targetYear = now.getFullYear();
+    let targetDate = new Date(targetYear, 6, 30, 0, 0, 0); // 30 de julho
+    
+    // Se o dia 30 de julho já passou este ano, calcula para o próximo ano
+    if (now > targetDate) {
+        targetYear++;
+        targetDate = new Date(targetYear, 6, 30, 0, 0, 0);
+    }
+    
+    const diff = targetDate - now;
+    
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    document.getElementById('days').textContent = String(days).padStart(2, '0');
+    document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+    document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+    document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);

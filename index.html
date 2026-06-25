@@ -11,12 +11,48 @@
     <div class="background-animation"></div>
     <div class="stars"></div>
     
+    <!-- Mensagens passando no fundo -->
+    <div class="floating-messages">
+        <span class="floating-message">Eu me apaixono cada dia mais por você ❤️</span>
+        <span class="floating-message">Você é linda demais 🌹</span>
+        <span class="floating-message">Meu amor por você só cresce 💕</span>
+        <span class="floating-message">Você é minha princesa 👑</span>
+        <span class="floating-message">Cada segundo ao seu lado é especial ✨</span>
+        <span class="floating-message">Te amo infinito 🥰</span>
+        <span class="floating-message">Você é meu sonho realizado 💭</span>
+        <span class="floating-message">Obrigado por existir na minha vida 💖</span>
+    </div>
+    
     <!-- Conteúdo -->
     <div class="container">
         <!-- Header -->
         <header class="header">
             <h1 class="title">Para Você, Minha Princesa</h1>
             <p class="subtitle">Cada dia ao seu lado é incrivel</p>
+            
+            <!-- Contador de tempo -->
+            <div class="countdown-section">
+                <h2 class="countdown-title">Faltam para completarmos 1 ano de namoro com aliança 💍</h2>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+                <p class="countdown-date">30 de Julho 💕</p>
+            </div>
         </header>
 
         <!-- Carrossel de Fotos -->
@@ -40,31 +76,31 @@
             </div>
             <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
             <div class="carousel-dots">
-                <span class="dot active" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-                <span class="dot" onclick="currentSlide(4)"></span>
+                <span class="dot active" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+                <span class="dot" onclick="goToSlide(4)"></span>
             </div>
         </section>
 
         <!-- Mensagens Carinhosas -->
         <section class="messages-section">
-            <div class="message-card">
+            <div class="message-card" data-emoji="💕">
                 <h2>Minha Pituca 💕</h2>
                 <p>Você é a pessoa mais incrível que conheço. Seu sorriso ilumina meu dia e seu carinho aquece meu coração.</p>
             </div>
 
-            <div class="message-card">
+            <div class="message-card" data-emoji="🥰">
                 <h2>Meu Neném 🥰</h2>
                 <p>Você merece o mundo todo. Sua beleza, sua inteligência e sua bondade me deixam apaixonado todos os dias.</p>
             </div>
 
-            <div class="message-card">
+            <div class="message-card" data-emoji="🌹">
                 <h2>Meu Amor 🌹</h2>
                 <p>Obrigado por ser minha companheira, minha confidente, minha melhor amiga. Você é tudo para mim.</p>
             </div>
 
-            <div class="message-card">
+            <div class="message-card" data-emoji="❤️">
                 <h2>Minha Gata ❤️</h2>
                 <p>EU TE AMO mais a cada dia. Com você aprendi o que é realmente amar alguém. Você é meu tudo, meu infinito.</p>
             </div>
