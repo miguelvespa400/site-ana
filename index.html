@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para a Minha Princesa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fundo Animado -->
+    <div class="background-animation"></div>
+    <div class="stars"></div>
+    
+    <!-- Conteúdo -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">Para Você, Minha Princesa</h1>
+            <p class="subtitle">Cada dia ao seu lado é magia</p>
+        </header>
+
+        <!-- Carrossel de Fotos -->
+        <section class="carousel-section">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item active">
+                        <img src="img/IMG-20250914-WA0092.jpg" alt="Foto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/IMG-20251207-WA0012.jpg" alt="Foto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/IMG-20251213-WA0019.jpg" alt="Foto">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/Screenshot_2026-02-16-21-05-36-097_com.google.android.apps.photos.jpg" alt="Foto">
+                    </div>
+                </div>
+                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </div>
+        </section>
+
+        <!-- Mensagens Carinhosas -->
+        <section class="messages-section">
+            <div class="message-card">
+                <h2>Minha Pituca 💕</h2>
+                <p>Você é a pessoa mais incrível que conheço. Seu sorriso ilumina meu dia e seu carinho aquece meu coração.</p>
+            </div>
+
+            <div class="message-card">
+                <h2>Minha Rainha ✨</h2>
+                <p>Você merece o mundo todo. Sua beleza, sua inteligência e sua bondade me deixam apaixonado todos os dias.</p>
+            </div>
+
+            <div class="message-card">
+                <h2>Meu Amor 🌹</h2>
+                <p>Obrigado por ser minha companheira, minha confidente, minha melhor amiga. Você é tudo para mim.</p>
+            </div>
+
+            <div class="message-card">
+                <h2>Minha Gata ❤️</h2>
+                <p>Te amo mais a cada dia. Com você aprendi o que é realmente amar alguém. Você é meu tudo, meu infinito.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Razões -->
+        <section class="reasons-section">
+            <h2>Por Que Eu Te Amo Tanto:</h2>
+            <div class="reasons-grid">
+                <div class="reason">
+                    <span class="reason-emoji">😊</span>
+                    <p>Seu sorriso contagiante</p>
+                </div>
+                <div class="reason">
+                    <span class="reason-emoji">💬</span>
+                    <p>Suas conversas incríveis</p>
+                </div>
+                <div class="reason">
+                    <span class="reason-emoji">💪</span>
+                    <p>Sua força e determinação</p>
+                </div>
+                <div class="reason">
+                    <span class="reason-emoji">❤️</span>
+                    <p>Seu coração puro</p>
+                </div>
+                <div class="reason">
+                    <span class="reason-emoji">🌟</span>
+                    <p>Você é especial demais</p>
+                </div>
+                <div class="reason">
+                    <span class="reason-emoji">👑</span>
+                    <p>Você é a minha rainha</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mensagem Final -->
+        <section class="final-message">
+            <div class="love-letter">
+                <h2>Te Amo Demais, Minha Princesa 👑</h2>
+                <p>
+                    Você é meu sonho realizado. Cada momento ao seu lado é precioso, cada palavra que você diz é ouro puro. 
+                    Minha pituca, minha gata, minha rainha... você é tudo isso e muito mais.
+                </p>
+                <p>
+                    Obrigado por me fazer o homem mais feliz do mundo. Prometo te amar, te cuidar e te fazer feliz todos os dias da minha vida.
+                </p>
+                <p class="signature">Com todo meu amor,<br>Seu Amor ❤️</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Corações flutuantes -->
+    <div class="hearts"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
