@@ -17,19 +17,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-    background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
+    background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 50%, #f9a8d4 100%);
     z-index: -2;
 }
 
-@keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Estrelas Piscantes */
+/* Bolinhas Decorativas */
 .stars {
     position: fixed;
     top: 0;
@@ -43,23 +35,27 @@ body {
 .stars::before {
     content: '';
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    box-shadow: 
-        100px 100px white, 200px 150px white, 300px 200px white, 150px 300px white,
-        400px 250px white, 500px 100px white, 600px 350px white, 50px 400px white,
-        450px 450px white, 250px 50px white, 350px 400px white, 550px 300px white,
-        150px 500px white, 700px 200px white, 100px 350px white, 650px 450px white,
-        75px 150px white, 350px 100px white, 500px 400px white, 200px 450px white,
-        600px 150px white, 300px 500px white, 450px 50px white, 800px 300px white,
-        25px 250px white, 700px 100px white, 400px 450px white, 550px 50px white;
-    animation: twinkle 3s infinite;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle, rgba(251, 207, 232, 0.8) 3px, transparent 3px),
+        radial-gradient(circle, rgba(245, 168, 206, 0.6) 5px, transparent 5px),
+        radial-gradient(circle, rgba(244, 114, 182, 0.4) 4px, transparent 4px),
+        radial-gradient(circle, rgba(236, 72, 153, 0.3) 2px, transparent 2px);
+    background-size: 200px 200px, 300px 300px, 250px 250px, 350px 350px;
+    background-position: 0 0, 50px 50px, 100px 0px, 50px 100px;
+    animation: float-dots 20s ease-in-out infinite;
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+@keyframes float-dots {
+    0%, 100% { 
+        opacity: 0.6;
+        transform: translateY(0px);
+    }
+    50% { 
+        opacity: 0.8;
+        transform: translateY(10px);
+    }
 }
 
 .stars::after {
@@ -68,15 +64,11 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        radial-gradient(circle at 20% 80%, rgba(240, 147, 251, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(79, 172, 254, 0.15) 0%, transparent 50%);
-    animation: glow-shift 12s ease infinite;
-}
-
-@keyframes glow-shift {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+        radial-gradient(circle, rgba(244, 114, 182, 0.2) 6px, transparent 6px),
+        radial-gradient(circle, rgba(236, 72, 153, 0.15) 8px, transparent 8px),
+        radial-gradient(circle, rgba(251, 207, 232, 0.1) 4px, transparent 4px);
+    background-size: 400px 400px, 500px 500px, 350px 350px;
+    background-position: 0 0, 100px 100px, 50px 200px;
 }
 
 /* Container Principal */
