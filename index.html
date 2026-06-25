@@ -21,6 +21,7 @@
 
         <!-- Carrossel de Fotos -->
         <section class="carousel-section">
+            <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
             <div class="carousel-container">
                 <div class="carousel">
                     <div class="carousel-item active">
@@ -36,9 +37,8 @@
                         <img src="img/Screenshot_2026-02-16-21-05-36-097_com.google.android.apps.photos.jpg" alt="Foto">
                     </div>
                 </div>
-                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
-                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
             </div>
+            <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
             <div class="carousel-dots">
                 <span class="dot active" onclick="currentSlide(1)"></span>
                 <span class="dot" onclick="currentSlide(2)"></span>
