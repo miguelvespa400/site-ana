@@ -56,7 +56,7 @@ setInterval(createFloatingHeart, 800);
 
 // Efeito de clique - criar coração ao clicar
 document.addEventListener('click', (e) => {
-    if (e.target.tagName !== 'BUTTON') {
+    if (e.target.tagName !== 'BUTTON' && !e.target.classList.contains('carousel-btn') && !e.target.classList.contains('dot')) {
         const heart = document.createElement('div');
         heart.className = 'heart';
         heart.textContent = '💕';
